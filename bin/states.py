@@ -5,3 +5,4 @@ class Gen(StatesGroup):
     calculate_number = State()
     input_first_number = State()
     input_second_number = State()
+    input_number_transform = State()

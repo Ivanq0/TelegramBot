@@ -54,6 +54,32 @@ async def calculate_extended(data):
     except Exception as e:
         logging.error(e)
 
+async def transform(data):
+    result = ""
+
+    try:
+        if data[1] == "from_two":
+            first_to_ten = transform_to_ten(data[0], 2)
+        elif data[1] == "from_eight":
+            first_to_ten = transform_to_ten(data[0], 8)
+        elif data[1] == "from_sixteen":
+            first_to_ten = transform_to_ten(data[0], 16)
+        elif data[1] == "from_ten":
+            first_to_ten = data[0]
+
+        if data[2] == "to_two":
+            result = from_ten_to_ans(first_to_ten, 2)
+        elif data[2] == "to_eight":
+            result = from_ten_to_ans(first_to_ten, 8)
+        elif data[2] == "to_sixteen":
+            result = from_ten_to_ans(first_to_ten, 16)
+        elif data[2] == "to_ten":
+            result = first_to_ten
+
+        return result
+
+    except Exception as e:
+        logging.error(e)
 
 def transform_to_ten(number, system):
     res = 0
